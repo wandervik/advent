@@ -8,7 +8,7 @@ def list_comparison(rucksack):
     return items.index(next(iter((set(first_part) & set(second_part)))))+1
 
 def three_list_comparison(rucksack_group):
-    match = ''.join((set(list(rucksack_group[0])) & set(list(rucksack_group[1])) & set(list(rucksack_group[2]))))
+    match = (set(list(rucksack_group[0])) & set(list(rucksack_group[1])) & set(list(rucksack_group[2])))
     items = list(string.ascii_letters)
     return items.index(next(iter(match)))+1
 
