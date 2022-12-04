@@ -2,20 +2,20 @@ def to_range(line):
     ranged_line = []
     for x in line:
         y = x.split("-")
-        y = list(range(int(y[0]), int(y[1])+1, 1))
+        y = set(range(int(y[0]), int(y[1])+1, 1))
         ranged_line.append(y)
     return ranged_line
 
 def is_contains(sections_ids):  
     line_proc = to_range(sections_ids)
     match = False
-    if set(line_proc[1]).issubset(set(line_proc[0])) or set(line_proc[0]).issubset(set(line_proc[1])):
+    if line_proc[1].issubset(line_proc[0]) or line_proc[0].issubset(line_proc[1]):
       match = True
     return match
 
 def is_overlap(sections_ids):
     line_proc = to_range(sections_ids)
-    return (set(line_proc[0]) & set(line_proc[1]))
+    return line_proc[0] & line_proc[1]
 
 def main():
     FILE = 'input.txt'
