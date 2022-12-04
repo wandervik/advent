@@ -1,19 +1,14 @@
 import string
 
 def list_comparison(rucksack):
-    first_part = []
-    second_part = []
     rucksack_list = list(rucksack)
     length = len(rucksack_list)//2
     first_part, second_part = rucksack_list[:length], rucksack_list[length:] 
-
-    match = (set(first_part) & set(second_part))
     items = list(string.ascii_letters)
-    return items.index(next(iter(match)))+1
+    return items.index(next(iter((set(first_part) & set(second_part)))))+1
 
 def three_list_comparison(rucksack_group):
-    match = (set(list(rucksack_group[0])) & set(list(rucksack_group[1])) & set(list(rucksack_group[2])))
-    match = ' '.join(match)
+    match = ''.join((set(list(rucksack_group[0])) & set(list(rucksack_group[1])) & set(list(rucksack_group[2]))))
     items = list(string.ascii_letters)
     return items.index(next(iter(match)))+1
 
