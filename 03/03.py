@@ -31,8 +31,7 @@ def main():
 
     items_priorities = []
     for i in range(0, len(data_into_list), 3):
-        x = i
-        items_priorities.append(three_list_comparison(data_into_list[x:x+3])) 
+        items_priorities.append(three_list_comparison(data_into_list[i:i+3])) 
     print("Task2:", sum(items_priorities))
 
 if __name__ == '__main__':
