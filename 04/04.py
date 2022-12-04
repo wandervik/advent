@@ -6,15 +6,10 @@ def to_range(line):
         ranged_line.append(y)
     return ranged_line
 
-def is_contains(sections_ids):  
-    line_proc = to_range(sections_ids)
-    match = False
-    if line_proc[1].issubset(line_proc[0]) or line_proc[0].issubset(line_proc[1]):
-      match = True
-    return match
+def is_contains(line_proc):  
+    return line_proc[1].issubset(line_proc[0]) or line_proc[0].issubset(line_proc[1])
 
-def is_overlap(sections_ids):
-    line_proc = to_range(sections_ids)
+def is_overlap(line_proc):
     return line_proc[0] & line_proc[1]
 
 def main():
@@ -26,14 +21,14 @@ def main():
     count = 0
     for x in data_into_list:
         x = x.split(",")
-        if is_contains(x) == True:
+        if is_contains(to_range(x)) == True:
             count += 1
     print("Task1:", count)
 
     count = 0
     for x in data_into_list:
         x = x.split(",")
-        if is_overlap(x) != set():
+        if is_overlap(to_range(x)) != set():
             count += 1
     print("Task2:", count)
 
