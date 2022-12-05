@@ -26,7 +26,7 @@ def proccess_rule(rule):
             proccessed_rule.append(i)
     return proccessed_rule
 
-def rule_apply(rule, columns):
+def rule_apply_fifo(rule, columns):
     items_count = int(rule[0])
     source_index = int(rule[1])-1
     dest_index = int(rule[2])-1
@@ -63,7 +63,7 @@ def main():
 
     stack = proccess_stacks(STACK_FILE)
     for i in rules_list:
-        stack = rule_apply(i, stack)
+        stack = rule_apply_fifo(i, stack)
     answer = ''
     for i in stack:
         answer += str(i[0])
