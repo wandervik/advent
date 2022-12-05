@@ -1,5 +1,3 @@
-from pprint import pprint
-
 COLUMNS_NUMBER = 9
 RULES_FILE = "input-rules.txt"
 STACK_FILE = "input-stack.txt"
@@ -15,9 +13,9 @@ def proccess_stacks(file):
 
     for stack in stacks:
         stack = stack[1::4]
-        for (i, crate) in enumerate(stack):
-            if crate != ' ' and not crate.isdigit():
-                columns[i].append(crate)
+        for (i, item) in enumerate(stack):
+            if item != ' ' and not item.isdigit():
+                columns[i].append(item)
     return columns
 
 def proccess_rule(rule):
@@ -29,39 +27,36 @@ def proccess_rule(rule):
     return proccessed_rule
 
 def rule_apply(rule, columns):
-
-    item_count = int(rule[0])
+    items_count = int(rule[0])
     source_index = int(rule[1])-1
     dest_index = int(rule[2])-1
 
-    for i in range(item_count):
+    for _ in range(items_count):
         popped_item = columns[source_index].pop(0)
         columns[dest_index].insert(0, popped_item)
     return columns
 
 def rule_apply_ordered(rule, columns):
-
-    item_count = int(rule[0])
+    items_count = int(rule[0])
     source_index = int(rule[1])-1
     dest_index = int(rule[2])-1
 
     popped_items = []
-
-    for i in range(item_count):
+    for _ in range(items_count):
         popped_item = columns[source_index].pop(0)
         popped_items.append(popped_item)
 
     popped_items.reverse() 
     for i in popped_items:
         columns[dest_index].insert(0, i)
-    
-    return columns
 
+    return columns
 
 def main():
     with open(RULES_FILE, "r") as f:
         rules = f.read()
     rules = rules.split("\n")
+
     rules_list = []
     for i in rules:
         rules_list.append(proccess_rule(i))
