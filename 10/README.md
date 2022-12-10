@@ -23,7 +23,8 @@ addx -5
 ```
 Execution of this program proceeds as follows:
 ```
-At the start of the first cycle, the noop instruction begins execution. During the first cycle, X is 1. After the first cycle, the noop instruction finishes execution, doing nothing.
+At the start of the first cycle, the noop instruction begins execution. During the first cycle, X is 1. 
+After the first cycle, the noop instruction finishes execution, doing nothing.
 At the start of the second cycle, the addx 3 instruction begins execution. During the second cycle, X is still 1.
 During the third cycle, X is still 1. After the third cycle, the addx 3 instruction finishes execution, setting X to 4.
 At the start of the fourth cycle, the addx -5 instruction begins execution. During the fourth cycle, X is still 4.
@@ -325,14 +326,6 @@ Allowing the program to run to completion causes the CRT to produce the followin
 Render the image given by your program. What eight capital letters appear on your CRT?
 <details> 
   <summary>Your puzzle answer was:</summary>
-   BGKAEREZ <br>
-    <code>
-$$$...$$..$..$..$$..$$$$.$$$..$$$$.$$$$.<br>
-$..$.$..$.$.$..$..$.$....$..$.$.......$.<br>
-$$$..$....$$...$..$.$$$..$..$.$$$....$..<br>
-$..$.$.$$.$.$..$$$$.$....$$$..$.....$...<br>
-$..$.$..$.$.$..$..$.$....$.$..$....$....<br>
-$$$...$$$.$..$.$..$.$$$$.$..$.$$$$.$$$$.<br>
-    </code>
+   BGKAEREZ
 </details>
 
