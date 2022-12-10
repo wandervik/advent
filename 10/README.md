@@ -10,7 +10,8 @@ Unless, that is, you can design a replacement for the device's video system! It 
 
 Start by figuring out the signal being sent by the CPU. The CPU has a single register, X, which starts with the value 1. It supports only two instructions:
 ```
-addx V takes two cycles to complete. After two cycles, the X register is increased by the value V. (V can be negative.)
+addx V takes two cycles to complete. 
+After two cycles, the X register is increased by the value V. (V can be negative.)
 noop takes one cycle to complete. It has no other effect.
 ```
 The CPU uses these instructions in a program (your puzzle input) to, somehow, tell the screen what to draw.
@@ -183,7 +184,8 @@ noop
 ```
 The interesting signal strengths can be determined as follows:
 ```
-During the 20th cycle, register X has the value 21, so the signal strength is 20 * 21 = 420. (The 20th cycle occurs in the middle of the second addx -1, so the value of register X is the starting value, 1, plus all of the other addx values up to that point: 1 + 15 - 11 + 6 - 3 + 5 - 1 - 8 + 13 + 4 = 21.)
+During the 20th cycle, register X has the value 21, so the signal strength is 20 * 21 = 420. 
+(The 20th cycle occurs in the middle of the second addx -1, so the value of register X is the starting value, 1, plus all of the other addx values up to that point: 1 + 15 - 11 + 6 - 3 + 5 - 1 - 8 + 13 + 4 = 21.)
 During the 60th cycle, register X has the value 19, so the signal strength is 60 * 19 = 1140.
 During the 100th cycle, register X has the value 18, so the signal strength is 100 * 18 = 1800.
 During the 140th cycle, register X has the value 21, so the signal strength is 140 * 21 = 2940.
